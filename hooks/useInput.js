@@ -13,4 +13,4 @@ const useInput = (initialState) => {
   return [value, bind];
 };
 
-export default useInput
+export default useInput;

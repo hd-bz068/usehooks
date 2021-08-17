@@ -11,6 +11,7 @@ these are some custom hooks to help you not repeat yourself again, again and may
 4. useToggle
 5. useLocalStorage
 6. useDarkMode
+7. useStack
 
 # usage
 
@@ -42,6 +43,9 @@ export default function App() {
 }
 
 ```
+
+### Parameters
+1. URL - string
 #### post request
 for post request pass in two params; **URL** & **opions**
 
@@ -62,6 +66,9 @@ export default function App() {
 }
 
 ```
+### Parameters
+1. URL - string
+2. options - object
 ---
 
 ## useInput
@@ -112,6 +119,9 @@ export default function App() {
 }
 
 ```
+### Parameters
+1. value - string || number
+
 ---
 ## useForm
 useForm hook allows you to keep a record of input values from a form, you dont need to have a state for each input just this one hook is enough.
@@ -189,6 +199,8 @@ export default function App() {
 }
 
 ```
+### Parameters
+1. condition - boolean
 ----
 ## useLocalStorage
 this hooks lets you write to local storage and retrieve back from local storage within a minute. This hook returns 2 attributes; **value** & **setValue**. **value** hold the information retrieved from local storage and **setValue** lets you add to local storage.
@@ -228,6 +240,9 @@ export default function App() {
 *you can name the destructured attribute names to anything you like!
 for simplicity i have used value and setValue.*
 
+### Parameters
+1. key - string
+
 ---
 ## useDarkMode
 this hooks makes the process much easier when you want your application to have night mode. JUST useDarkMode.
@@ -253,5 +268,36 @@ export default function App() {
 ```
 *this hook adds a class **dark** to the body if **true** and removes class **dark** if false*
 -----
-
+### Parameters
+1. MODE - boolean
 ------
+## useStack
+ever needed stack? well you no longer need to go through the implementationd level, JUST useStack.
+
+```
+import React from "react";
+import "./App.css";
+
+import {useStack} from "custom-hooks-for-react";
+
+
+export default function App() {
+
+  const [stack, setStack, popStack] = useStack();
+
+  return (
+    <div>
+      <button onClick={()=> setStack('hi')}>push</button>
+      <button onClick={()=> popStack()}>pop</button>
+
+    </div>
+  );
+}
+
+```
+```
+["hi", "hi", "hi", "hi", "hi", "hi", "hi", "hi"]
+```
+### Parameters
+1. initialState - array
+---
