@@ -1,0 +1,24 @@
+{
+  "name": "@react/usehooks",
+  "version": "1.0.0",
+  "description": "react custom hooks, happy react coding",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hd-bz068/usehooks.git"
+  },
+  "keywords": [
+    "customhooks",
+    "react",
+    "hooks"
+  ],
+  "author": "baghdad zazai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hd-bz068/usehooks/issues"
+  },
+  "homepage": "https://github.com/hd-bz068/usehooks#readme"
+}
