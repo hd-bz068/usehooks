@@ -16,7 +16,7 @@ these are some custom hooks to help you not repeat yourself again, again and may
 # usage
 
 ```
-npm i custom-hooks-for-react
+npm i custom-hooks-react
 ```
 ----
 ## useFetch
@@ -29,7 +29,7 @@ for get request just pass one param; the **URL**
 ```
 import React from 'react'
 
-import {useFetch} from 'custom-hooks-for-react'
+import {useFetch} from 'custom-hooks-react'
 
 export default function App() {
     const URL = 'https://dog.ceo/api/breeds/image/random'
@@ -54,7 +54,7 @@ import React from 'react'
 import './App.css'
 
 
-import {useFetch} from 'custom-hooks-for-react'
+import {useFetch} from 'custom-hooks-react'
 export default function App() {
     const [data, error, loading] = useFetch(URL, { answer: 42 })
     console.log(data, error, loading)
@@ -82,7 +82,7 @@ pass in the bind object
 import React from 'react'
 import './App.css'
 
-import {useInput} from 'custom-hooks-for-react'
+import {useInput} from 'custom-hooks-react'
 
 export default function App() {
     const [firstName, firstNameBind] = useInput('F Name')
@@ -104,7 +104,7 @@ just the normal way but still better than the old way.
 import React from 'react'
 import './App.css'
 
-import {useInput} from 'custom-hooks-for-react'
+import {useInput} from 'custom-hooks-react'
 
 export default function App() {
     const [firstName, firstNameBind] = useInput('F Name')
@@ -130,7 +130,7 @@ useForm hook allows you to keep a record of input values from a form, you dont n
 import React from "react";
 import "./App.css";
 
-import { useForm } from "custom-hooks-for-react";
+import { useForm } from "custom-hooks-react";
 
 export default function App() {
   const handleSubmit = (e) => {
@@ -187,7 +187,7 @@ If no params are passed, then on default it is **false**
 import React from 'react'
 import './App.css'
 
-import {useToggle} from 'custom-hooks-for-react'
+import {useToggle} from 'custom-hooks-react'
 
 export default function App() {
     const [isOn, setIsOn] = useToggle()
@@ -209,7 +209,7 @@ this hooks lets you write to local storage and retrieve back from local storage 
 import React from "react";
 import "./App.css";
 
-import { useInput, useLocalStorage } from "custom-hooks-for-react";
+import { useInput, useLocalStorage } from "custom-hooks-react";
 
 export default function App() {
 
@@ -253,7 +253,7 @@ the hook takes 1 param; a **boolean**, on defualt it is **false**.
 import React from "react";
 import "./App.css";
 
-import { useDarkMode } from "custom-hooks-for-react";
+import { useDarkMode } from "custom-hooks-react";
 
 export default function App() {
 
@@ -278,7 +278,7 @@ ever needed stack? well you no longer need to go through the implementationd lev
 import React from "react";
 import "./App.css";
 
-import {useStack} from "custom-hooks-for-react";
+import {useStack} from "custom-hooks-react";
 
 
 export default function App() {
