@@ -7,9 +7,13 @@ these are some custom hooks to help you not repeat yourself again, again and may
 ## hooks
 1. useFetch
 2. useInput
-3. useToggle
+3. useForm
+4. useToggle
+5. useLocalStorage
+6. useDarkMode
 
-## usage
+# usage
+
 ```
 npm i custom-hooks-for-react
 ```
@@ -185,3 +189,69 @@ export default function App() {
 }
 
 ```
+----
+## useLocalStorage
+this hooks lets you write to local storage and retrieve back from local storage within a minute. This hook returns 2 attributes; **value** & **setValue**. **value** hold the information retrieved from local storage and **setValue** lets you add to local storage.
+
+```
+import React from "react";
+import "./App.css";
+
+import { useInput, useLocalStorage } from "custom-hooks-for-react";
+
+export default function App() {
+
+  // you can name the destructured attribute names to anything you like!
+  // for simplicity i have used value and setValue.
+
+  const [value, setValue] = useLocalStorage('key');
+  const [name, nameBind] = useInput('');
+
+  console.log(value);
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setValue(name);
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input  type='text' {...nameBind} />
+        <button type="submit">submit</button>
+      </form>
+    </div>
+  );
+}
+```
+*you can name the destructured attribute names to anything you like!
+for simplicity i have used value and setValue.*
+
+---
+## useDarkMode
+this hooks makes the process much easier when you want your application to have night mode. JUST useDarkMode.
+
+the hook takes 1 param; a **boolean**, on defualt it is **false**.
+
+```
+import React from "react";
+import "./App.css";
+
+import { useDarkMode } from "custom-hooks-for-react";
+
+export default function App() {
+
+  const [mode, setMode] = useDarkMode(true);
+
+  return (
+    <div>
+      <button onClick={setMode}>{`i am ${mode}`}</button>
+    </div>
+  );
+}
+```
+*this hook adds a class **dark** to the body if **true** and removes class **dark** if false*
+-----
+
+------
