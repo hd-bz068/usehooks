@@ -7,13 +7,14 @@ these are some custom hooks to help you not repeat yourself again, again and may
 ## hooks
 1. useFetch
 2. useInput
+3. useToggle
 
 ## usage
 ```
 npm i custom-hooks-for-react
 ```
 ----
-### useFetch
+## useFetch
 
 useFetch uses the fetch api to make the process much easier and simpler when making api callls. 
 useFetch returns, 3 attributes, **data , error, loading**
@@ -59,7 +60,7 @@ export default function App() {
 ```
 ---
 
-### useInput
+## useInput
 no need to repeat youself updating the state why not let this package handle it for you.
 
 useInput return 2 attributes, **value & bind function**. value holds the value of the state and bind hold the value and onChange function.
@@ -107,7 +108,64 @@ export default function App() {
 }
 
 ```
-### useToggle
+---
+## useForm
+useForm hook allows you to keep a record of input values from a form, you dont need to have a state for each input just this one hook is enough.
+
+```
+import React from "react";
+import "./App.css";
+
+import { useForm } from "custom-hooks-for-react";
+
+export default function App() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(values);
+  };
+
+  const [values, setValues] = useForm();
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          value={values.firstName || ""}
+          onChange={setValues}
+          name="firstName"
+          type="text"
+        />
+
+        <input
+          value={values.lastName || ""}
+          onChange={setValues}
+          name="lastName"
+          type="text"
+        />
+
+        <input
+          value={values.age || ""}
+          onChange={setValues}
+          name="age"
+          type="text"
+        />
+
+        <button type="submit">submit</button>
+      </form>
+    </div>
+  );
+}
+```
+
+this hook **values** will return object with all input **names** and input values.
+
+```
+{firstName: "first", lastName: "last", age: "15"}
+```
+### EVERY INPUT MUST HAVE **name** ATTRIBUTE.
+
+---
+
+## useToggle
 simple toggle hook, it will return true or false based on the set function. This hooks takes in a param; **active**. Active is **Boolean**.
 If no params are passed, then on default it is **false**
 
