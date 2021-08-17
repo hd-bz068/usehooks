@@ -1,5 +1,5 @@
 {
-  "name": "@react/usehooks",
+  "name": "custom-hooks-for-react",
   "version": "1.0.0",
   "description": "react custom hooks, happy react coding",
   "main": "index.js",

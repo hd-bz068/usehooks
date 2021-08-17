@@ -10,7 +10,7 @@ these are some custom hooks to help you not repeat yourself again, again and may
 
 ## usage
 ```
-npm i 
+npm i custom-hooks-for-react
 ```
 ----
 ### useFetch
@@ -23,7 +23,7 @@ for get request just pass one param; the **URL**
 ```
 import React from 'react'
 
-import {useFetch} from 'usehooks'
+import {useFetch} from 'custom-hooks-for-react'
 
 export default function App() {
     const URL = 'https://dog.ceo/api/breeds/image/random'
@@ -45,7 +45,7 @@ import React from 'react'
 import './App.css'
 
 
-import {useFetch} from 'usehooks'
+import {useFetch} from 'custom-hooks-for-react'
 export default function App() {
     const [data, error, loading] = useFetch(URL, { answer: 42 })
     console.log(data, error, loading)
@@ -70,7 +70,7 @@ pass in the bind object
 import React from 'react'
 import './App.css'
 
-import {useInput} from 'usehooks'
+import {useInput} from 'custom-hooks-for-react'
 
 export default function App() {
     const [firstName, firstNameBind] = useInput('F Name')
@@ -92,7 +92,7 @@ just the normal way but still better than the old way.
 import React from 'react'
 import './App.css'
 
-import {useInput} from 'usehooks'
+import {useInput} from 'custom-hooks-for-react'
 
 export default function App() {
     const [firstName, firstNameBind] = useInput('F Name')
