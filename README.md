@@ -107,3 +107,23 @@ export default function App() {
 }
 
 ```
+### useToggle
+simple toggle hook, it will return true or false based on the set function. This hooks takes in a param; **active**. Active is **Boolean**.
+If no params are passed, then on default it is **false**
+
+```
+import React from 'react'
+import './App.css'
+
+import {useToggle} from 'custom-hooks-for-react'
+
+export default function App() {
+    const [isOn, setIsOn] = useToggle()
+    return (
+        <div>
+           <button onClick={setIsOn}>{`i am ${isOn}`}</button>
+        </div>
+    )
+}
+
+```
