@@ -7,8 +7,10 @@ import useDarkMode from "./hooks/useDarkMode";
 import useStack from "./hooks/useStack";
 import useQueue from "./hooks/useQueue";
 import useGeoLocation from "./hooks/useGeoLocation";
-import useTimer from './hooks/useTimer'
+import useTimer from "./hooks/useTimer";
 import useCountDown from "./hooks/useCountDown";
+import useIsMounted from "./hooks/useIsMounted";
+import useIsLoading from "./hooks/useIsLoading";
 
 export {
   useInput,
@@ -22,4 +24,6 @@ export {
   useGeoLocation,
   useTimer,
   useCountDown,
+  useIsMounted,
+  useIsLoading,
 };

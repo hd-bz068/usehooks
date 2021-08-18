@@ -16,6 +16,8 @@ these are some custom hooks to help you not repeat yourself again, again and may
 9. [useGeoLocation](#useGeoLocation)
 10. [useTimer](#useTimer)
 11. [useCountDown](#useCountDown)
+12. [useIsMounted](#useIsMounted)
+13. [useIsLoading](#useIsLoading)
 
 # usage
 
@@ -416,4 +418,62 @@ export default function App() {
 ### Parameters
 1. full date (date and time) - date
 ---
+## useIsMounted
+if you want to check if your component has rendered use this hook.
+this hook returns a **boolean**.
 
+```
+import React from "react";
+import "./App.css";
+
+import {useIsMounted} from "custom-hooks-react";
+
+export default function App() {
+    const isMounted = useIsMounted()
+
+  return (
+    <div>
+        <p>{`${isMounted}`}</p>
+    </div>
+  );
+}
+```
+### Parameters
+NONE
+
+---
+## useIsLoading
+if you want to check the status of a function, then use this hook. 
+This hook takes in an **async** function then returns an **array** which contains the **function** and **loading status** of the function.
+```
+import React, { useEffect } from "react";
+import "./App.css";
+
+import { useIsLoading } from "custom-hooks-react";
+
+const delayFunction = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export default function App() {
+  const fetchDevs = async () => {
+    console.log("this might take some Stime....");
+    await delayFunction(4000);
+    console.log("Done!");
+  };
+
+  const [getDevs, isLoading] = useIsLoading(fetchDevs);
+
+  useEffect(() => {
+    getDevs();
+  }, []);
+
+  return (
+    <div>
+      <p>{`${isLoading}`}</p>
+    </div>
+  );
+}
+```
+### Parameters
+1. action - function
+
+---
