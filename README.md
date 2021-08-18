@@ -5,16 +5,16 @@ these are some custom hooks to help you not repeat yourself again, again and may
 
 ---
 ## hooks
-1. useFetch
-2. useInput
-3. useForm
-4. useToggle
-5. useLocalStorage
-6. useDarkMode
-7. useStack
-8. useQueue
-9. useGeoLocation
-10. useTimer
+1. [useFetch](#useFetch)
+2. [useInput](#useInput)
+3. [useForm](#useForm)
+4. [useToggle](#useToggle)
+5. [useLocalStorage](#useLocalStorage)
+6. [useDarkMode](#useDarkMode)
+7. [useStack](#useStack)
+8. [useQueue](#useQueue)
+9. [useGeoLocation](#useGeoLocation)
+10. [useTimer](#useTimer)
 11. [useCountDown](#useCountDown)
 
 # usage
