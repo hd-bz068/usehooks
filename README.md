@@ -14,6 +14,8 @@ these are some custom hooks to help you not repeat yourself again, again and may
 7. useStack
 8. useQueue
 9. useGeoLocation
+10. useTimer
+11. [useCountDown](#useCountDown)
 
 # usage
 
@@ -353,5 +355,65 @@ export default function App() {
 ### Parameters
 **None**
 
+---
+## useTimer
+you need a timer, just useTimer.
+useTimer hook take 1 parameter and return **two** elements. The first element is the **timer** which is a **string** and second is an **object** with **four** routines (functions) that control the timer.
+
+the functions that control the timer, in the object are:
+1. start()
+2. stop()
+3. resume()
+4. reset()
+
+```
+import React from "react";
+import "./App.css";
+
+import {useTimer} from "custom-hooks-react";
+
+export default function App() {
+  const [timer, actions] = useTimer(60000);
+
+  return (
+    <div>
+        <p>{timer}</p>
+        <button onClick={actions.start}>start</button>
+        <button onClick={actions.stop}>stop</button>
+        <button onClick={actions.reset}>reset</button>
+        <button onClick={actions.resume}>resume</button>
+
+    </div>
+  );
+}
+```
+### Parameters
+1. time in mili-seconds - number
+* on default it is 0.
+
+---
+## useCountDown
+for simple yet complex countdown use this hook, you will save a lot of time.
+This hook take **one** parameter which is of type **Date** and returns an array with **four** elements; *[days, hours, minutes, seconds]*.
+
+```
+import React from "react";
+import "./App.css";
+
+import {useCountDown} from "custom-hooks-react";
+
+export default function App() {
+  
+  const [days, hours, minutes, seconds] = useCountDown("September 1, 2021 00:00:00");
+
+  return (
+    <div>
+        <p>{`${days}:${hours}:${minutes}:${seconds}`}</p>
+    </div>
+  );
+}
+```
+### Parameters
+1. full date (date and time) - date
 ---
 
