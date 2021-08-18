@@ -13,11 +13,13 @@ these are some custom hooks to help you not repeat yourself again, again and may
 6. [useDarkMode](#useDarkMode)
 7. [useStack](#useStack)
 8. [useQueue](#useQueue)
-9. [useGeoLocation](#useGeoLocation)
-10. [useTimer](#useTimer)
-11. [useCountDown](#useCountDown)
-12. [useIsMounted](#useIsMounted)
-13. [useIsLoading](#useIsLoading)
+9. [useArray](#useArray)
+10. [useGeoLocation](#useGeoLocation)
+11. [useTimer](#useTimer)
+12. [useCountDown](#useCountDown)
+13. [useIsMounted](#useIsMounted)
+14. [useIsLoading](#useIsLoading)
+15. [useDocumentTitle](#useDocumentTitle)
 
 # usage
 
@@ -52,8 +54,8 @@ export default function App() {
 
 ### Parameters
 1. URL - string
-#### post request
-for post request pass in two params; **URL** & **opions**
+#### post, delete, update request
+for post request pass in two params; **URL** & **options**
 
 ```
 import React from 'react'
@@ -334,6 +336,42 @@ console.log(queue);
 ### Parameters
 1. initialState - array
 ---
+## useArray
+using arrays with hooks can never be easier than this, this hook will handle the main functionalities for you. The hook take an **array** as paramter and returns an array with the **array** itself, **setState** and an **object** of **functions**.
+
+```
+import React, { useState } from "react";
+import "./App.css";
+
+import { useArray } from "custom-hooks-react";
+
+export default function App() {
+  const [arr, setArr, actions] = useArray();
+
+  console.log(arr);
+
+  return (
+    <div>
+      <button onClick={() => actions.add(Math.floor(Math.random() * 20))}>
+        add
+      </button>
+
+      <button onClick={() => actions.removeAt(2)}>remove at 3</button>
+    </div>
+  );
+}
+```
+### actions object functions
+1. add() - add element to array.
+2. clear() - clears array
+3. removeById - removes by id - takes id as param
+4. removeAt - remove at an index - take index as param
+### Parameters
+1. initialState - array
+2. removeById - id
+3. removeAt - index - number
+
+---
 ## useGeoLocation
 to get the users location, then this is the hook for you. this hook returns an **object** containing **latitude** and **longitude**.
 
@@ -477,3 +515,28 @@ export default function App() {
 1. action - function
 
 ---
+## useDocumentTitle
+if you want to update the title of your react page dynamically this is your hook.
+in order to change the title, you will need to pass the **title** as parameter to the hook, it will return back the **title** stored in the **useDocumentTitle** state.
+
+```
+import React, { useState } from "react";
+import "./App.css";
+
+import { useDocumentTitle } from "custom-hooks-react";
+
+export default function App() {
+  const [state, setstate] = useState(0);
+  const displayTitle = `clicked ${state}`;
+  const title = useDocumentTitle(displayTitle);
+  return (
+    <div>
+      <button onClick={() => setstate(state + 1)}>add</button>
+    </div>
+  );
+}
+```
+### Parameters
+1. initialValue - string or number
+---
+
