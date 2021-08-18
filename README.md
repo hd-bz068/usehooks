@@ -12,6 +12,8 @@ these are some custom hooks to help you not repeat yourself again, again and may
 5. useLocalStorage
 6. useDarkMode
 7. useStack
+8. useQueue
+9. useGeoLocation
 
 # usage
 
@@ -301,3 +303,55 @@ export default function App() {
 ### Parameters
 1. initialState - array
 ---
+## useQueue
+need a queue? just useQueue.
+
+```
+import React from "react";
+import "./App.css";
+
+import {useQueue} from "custom-hooks-for-react";
+
+export default function App() {
+
+const [queue, enqueue, dequeue] = useQueue()
+console.log(queue);
+
+  return (
+    <div>
+      <button onClick={()=> enqueue('hey')}>enqueue</button>
+      <button onClick={dequeue}>dequeue</button>
+
+    </div>
+  );
+}
+
+```
+### Parameters
+1. initialState - array
+---
+## useGeoLocation
+to get the users location, then this is the hook for you. this hook returns an **object** containing **latitude** and **longitude**.
+
+```
+import React from "react";
+import "./App.css";
+
+import {useGeoLocation} from "custom-hooks-for-react";
+
+export default function App() {
+  const [location, error] = useGeoLocation()
+
+  return (
+    <div>
+        <p>{`${location.latitude} / ${location.longitude}`}</p>
+    </div>
+  );
+}
+
+```
+### Parameters
+**None**
+
+---
+

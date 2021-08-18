@@ -5,6 +5,8 @@ import useForm from "./hooks/useForm";
 import useLocalStorage from "./hooks/useLocalStorage";
 import useDarkMode from "./hooks/useDarkMode";
 import useStack from "./hooks/useStack";
+import useQueue from "./hooks/useQueue";
+import useGeoLocation from './hooks/useGeoLocation'
 
 export {
   useInput,
@@ -14,4 +16,6 @@ export {
   useLocalStorage,
   useDarkMode,
   useStack,
+  useQueue,
+  useGeoLocation
 };
