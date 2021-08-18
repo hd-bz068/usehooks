@@ -310,7 +310,7 @@ need a queue? just useQueue.
 import React from "react";
 import "./App.css";
 
-import {useQueue} from "custom-hooks-for-react";
+import {useQueue} from "custom-hooks-react";
 
 export default function App() {
 
@@ -337,7 +337,7 @@ to get the users location, then this is the hook for you. this hook returns an *
 import React from "react";
 import "./App.css";
 
-import {useGeoLocation} from "custom-hooks-for-react";
+import {useGeoLocation} from "custom-hooks-react";
 
 export default function App() {
   const [location, error] = useGeoLocation()
