@@ -11,6 +11,10 @@ import useTimer from "./hooks/useTimer";
 import useCountDown from "./hooks/useCountDown";
 import useIsMounted from "./hooks/useIsMounted";
 import useIsLoading from "./hooks/useIsLoading";
+import useSessionStorage from "./hooks/useSessionStorage";
+import useArray from "./hooks/useArray";
+import useDocumentTitle from "./hooks/useDocumentTitle";
+import useIndexedDB from "./hooks/useIndexedDB";
 
 export {
   useInput,
@@ -26,4 +30,8 @@ export {
   useCountDown,
   useIsMounted,
   useIsLoading,
+  useSessionStorage,
+  useArray,
+  useDocumentTitle,
+  useIndexedDB
 };

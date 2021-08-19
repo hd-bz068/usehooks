@@ -5,21 +5,23 @@ these are some custom hooks to help you not repeat yourself again, again and may
 
 ---
 ## hooks
-1. [useFetch](#useFetch)
-2. [useInput](#useInput)
-3. [useForm](#useForm)
-4. [useToggle](#useToggle)
-5. [useLocalStorage](#useLocalStorage)
-6. [useDarkMode](#useDarkMode)
-7. [useStack](#useStack)
-8. [useQueue](#useQueue)
-9. [useArray](#useArray)
-10. [useGeoLocation](#useGeoLocation)
-11. [useTimer](#useTimer)
-12. [useCountDown](#useCountDown)
-13. [useIsMounted](#useIsMounted)
-14. [useIsLoading](#useIsLoading)
-15. [useDocumentTitle](#useDocumentTitle)
+* [useFetch](#useFetch)
+* [useInput](#useInput)
+* [useForm](#useForm)
+* [useToggle](#useToggle)
+* [useLocalStorage](#useLocalStorage)
+* [useSessionStorage](#useSessionStorage)
+* [useIndexedDB](#useIndexedDB)
+* [useDarkMode](#useDarkMode)
+* [useStack](#useStack)
+* [useQueue](#useQueue)
+* [useArray](#useArray)
+* [useGeoLocation](#useGeoLocation)
+* [useTimer](#useTimer)
+* [useCountDown](#useCountDown)
+* [useIsMounted](#useIsMounted)
+* [useIsLoading](#useIsLoading)
+* [useDocumentTitle](#useDocumentTitle)
 
 # usage
 
@@ -251,6 +253,111 @@ for simplicity i have used value and setValue.*
 ### Parameters
 1. key - string
 
+---
+## useSessionStorage
+this hooks lets you write to session storage and retrieve back from session storage within seconds. This hook returns 2 attributes; **value** & **setValue**. **value** hold the information retrieved from session storage and **setValue** lets you add to session storage.
+```
+import React from "react";
+import "./App.css";
+
+import { useInput, useSessionStorage } from "custom-hooks-react";
+
+export default function App() {
+
+  const [value, setValue] = useSessionStorage('key');
+  const [name, nameBind] = useInput('');
+
+  console.log(value);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setValue(name);
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input  type='text' {...nameBind} />
+        <button type="submit">submit</button>
+      </form>
+    </div>
+  );
+}
+```
+### Parameters
+1. key - string
+---
+## useIndexedDB
+this hook lets you interact with indexedDB with much simplicity.
+```
+import React from "react";
+import "./App.css";
+
+ import { useIndexedDB } from "custom-hooks-react";
+
+export default function App() {
+  const [state, actions] = useIndexedDB("DB", "Table", "PrimaryKey");
+
+  console.log(state.error);
+  console.log(state.success);
+
+  // get all items in table
+  const getItems = async () => {
+    const items = await actions.getAll();
+    console.log(items);
+  };
+
+  // get all items in table
+  const getItem = async () => {
+    const item = await actions.getItem(2);
+    console.log(item);
+  };
+
+  return (
+    <div>
+      <button
+        onClick={() =>
+          actions.add({ myKey: Math.floor(Math.random() * 10), name: "dell" })
+        }
+      >
+        add
+      </button>
+
+      <button onClick={() => actions.removeItem(7)}>delete</button>
+
+      <button onClick={() => actions.updateItem({ myKey: 6, name: "hp" })}>
+        update
+      </button>
+
+      <button onClick={getItems}>getItem</button>
+    </div>
+  );
+}
+```
+This hook takes 3 parameters => **database name**, **table name** and **primary key**.
+
+This hook returns 2 elements => **state** and **actions**  (you can name them anything when destructuring).
+
+### Returns
+#### state
+1. error - status message
+2. success - status message
+
+#### actions
+1. getAll() - function 
+* no params
+2. getItem(primaryKey) - function
+* primaryKey - string or number
+3. updateItem(new Object) - function
+* new Object - updated values - object
+4. removeItem(primaryKey)
+* primaryKey - string or number
+
+
+### Parameters
+1. Database-Name - string 
+2. Table-Name - string
+3. PrimaryKey - string or number (string is better choice)
 ---
 ## useDarkMode
 this hooks makes the process much easier when you want your application to have night mode. JUST useDarkMode.
