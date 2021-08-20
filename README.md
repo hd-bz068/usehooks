@@ -22,6 +22,15 @@ these are some custom hooks to help you not repeat yourself again, again and may
 * [useIsMounted](#useIsMounted)
 * [useIsLoading](#useIsLoading)
 * [useDocumentTitle](#useDocumentTitle)
+* [useScript](#useScript)
+* [useCss](#useCss)
+* [useKeyPressed](#useKeyPressed)
+* [useWindowSize](#useWindowSize)
+* [useOnHover](#useOnHover)
+* [usePosition](#usePosition)
+* [useSpeak](#useSpeak)
+* [useSpeechRecognition](#useSpeechRecognition)
+* [useCopyToClipboard](#useCopyToClipboard)
 
 # usage
 
@@ -646,4 +655,201 @@ export default function App() {
 ### Parameters
 1. initialValue - string or number
 ---
+## useScript
+this hook takes in a link to any script internal or external, then tries to load it. it will also return the status of loading process and append the script to the index.html
 
+```
+import React from "react";
+import "./App.css";
+
+import { useScript } from "custom-hooks-react";
+
+export default function App() {
+  const status = useScript(
+    "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+  );
+  console.log(status);
+
+  return <div>REACT</div>;
+}
+```
+### Parameters
+1. src - string
+---
+## useCss
+this hook takes in a link to any css href internal or external, then tries to load it. it will also return the status of loading process and append the css href to the index.html
+```
+import React from "react";
+import "./App.css";
+
+import {useCss} from "custom-hooks-react";
+
+export default function App() {
+  const status = useCss(
+    "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap-grid.min.css"
+  );
+
+  console.log(status);
+
+  return <div>REACT</div>;
+}
+```
+### Parameters
+1. src - string
+---
+### useKeyPressed
+this hook allow you to keep track of the keys that are pressed on the keyboard by the user.
+```
+import React from "react";
+import "./App.css";
+
+import { useKeyPressed } from "custom-hooks-react";
+
+export default function App() {
+  const key = useKeyPressed("w");
+  const keyTwo = useKeyPressed("i");
+  const keyThree = useKeyPressed("n");
+
+  console.log(key);
+  console.log(keyTwo);
+  console.log(keyThree);
+
+  return <div>REACT</div>;
+}
+```
+### Parameters
+1. src - string
+* if you're checking for a number add it as a **string** not **int**; '1' or "1".
+---
+### useWindowSize
+this hook returns the size of window as it resizes.
+```
+import React from "react";
+import "./App.css";
+
+import { useWindowSize } from "custom-hooks-react";
+
+export default function App() {
+  const [height, width] = useWindowSize();
+
+  console.log({ height, width });
+
+  return <div>REACT</div>;
+}
+```
+### Parameters
+NONE
+
+---
+## useOnHover
+this hook returns if mouse is hovered on top of an element.
+```
+import React from "react";
+import "./App.css";
+
+import { useOnHover } from "custom-hooks-react";
+
+export default function App() {
+  const [reference, status] = useOnHover();
+
+  console.log(status);
+
+  return (
+    <div>
+      <button
+        ref={reference}
+        style={{ backgroundColor: status ? "red" : "black" }}
+      >
+        submit
+      </button>
+    </div>
+  );
+}
+```
+### Parameters
+NONE
+
+---
+## usePosition
+this hook returns the **X** and **Y** position of mouse click on an element. It returns an array with object which holds **positionX** & **positionY** and a **function** which trigers the position.
+```
+import React from "react";
+import "./App.css";
+
+import {usePosition} from "custom-hooks-react";
+
+export default function App() {
+  const [position, handlePosition] = usePosition();
+
+  console.log(position);
+
+  return <div onClick={handlePosition}>REACT</div>;
+}
+```
+### Parameters
+NONE
+
+---
+## useSpeak
+this hook read out loud the text that is paased as parameter.
+```
+import React from "react";
+import "./App.css";
+
+import {useSpeak} from "custom-hooks-react";
+
+export default function App() {
+  const [state, setState, speak] = useSpeak("hello how are you");
+
+  return <div onClick={() => speak()}>REACT</div>;
+}
+```
+### Parameters
+1. text - string
+
+---
+## useSpeechRecognition
+this hook changes speech into text, simply talk into microphone and it will return the text. This hook returns an array with **text** & **status** & **start** function which starts the recognition.
+```
+import React from "react";
+import "./App.css";
+
+import {useSpeechRecognition} from "custom-hooks-react";
+
+export default function App() {
+  const [state, status, start] = useSpeechRecognition();
+
+  return (
+    <>
+      <div onClick={() => start()}>START</div>
+      <p>{status ? status : state}</p>
+    </>
+  );
+}
+```
+### Parameters
+NONE
+
+---
+## useCopyToClipboard
+this hook allows you to copy text to clip board by inserting the text into the **copy** function as **params**.
+```
+import React from "react";
+import "./App.css";
+
+import {useCopyToClipboard} from "custom-hooks-react";
+
+export default function App() {
+  const [text, copy] = useCopyToClipboard();
+
+  console.log(text);
+
+  return (
+    <>
+      <div onClick={() => copy("hello world")}>COPY</div>
+    </>
+  );
+}
+```
+### Parameters
+NONE

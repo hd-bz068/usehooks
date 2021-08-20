@@ -15,6 +15,15 @@ import useSessionStorage from "./hooks/useSessionStorage";
 import useArray from "./hooks/useArray";
 import useDocumentTitle from "./hooks/useDocumentTitle";
 import useIndexedDB from "./hooks/useIndexedDB";
+import useScript from "./hooks/useScript";
+import useKeyPressed from "./hooks/useKeyPressed";
+import useWindowSize from "./hooks/useWindowSize";
+import useOnHover from "./hooks/useOnHover";
+import useCss from "./hooks/useCss";
+import usePosition from "./hooks/usePosition";
+import useSpeak from "./hooks/useSpeak";
+import useSpeechRecognition from "./hooks/useSpeechRecognition";
+import useCopyToClipboard from "./hooks/useCopyToClipboard";
 
 export {
   useInput,
@@ -33,5 +42,14 @@ export {
   useSessionStorage,
   useArray,
   useDocumentTitle,
-  useIndexedDB
+  useIndexedDB,
+  useScript,
+  useKeyPressed,
+  useWindowSize,
+  useOnHover,
+  useCss,
+  usePosition,
+  useSpeak,
+  useSpeechRecognition,
+  useCopyToClipboard,
 };
