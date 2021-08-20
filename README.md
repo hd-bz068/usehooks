@@ -1,4 +1,4 @@
-# make your life easier for sure!
+# a collection of some of the best hooks for react!
 
 ---
 these are some custom hooks to help you not repeat yourself again, again and maybe again, so help yourself.
