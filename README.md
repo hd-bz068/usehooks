@@ -104,8 +104,8 @@ import './App.css'
 import {useInput} from 'custom-hooks-react'
 
 export default function App() {
-    const [firstName, firstNameBind] = useInput('F Name')
-    const [lastName, lastNameBind] = useInput('L Name')
+    const [firstName, firstNameBind, emptyLastName] = useInput('F Name')
+    const [lastName, lastNameBind, emptyLastName] = useInput('L Name')
 
     return (
         <div >
