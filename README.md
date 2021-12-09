@@ -1,7 +1,7 @@
-# a collection of some of the best hooks for react!
+# A collection of hooks for react js!
 
 ---
-these are some custom hooks to help you not repeat yourself again, again and maybe again, so help yourself.
+these are some custom hooks to help you not repeat yourself again, again and maybe again.
 
 ---
 ## hooks
@@ -18,7 +18,7 @@ these are some custom hooks to help you not repeat yourself again, again and may
 * [useArray](#useArray)
 * [useGeoLocation](#useGeoLocation)
 * [useTimer](#useTimer)
-* [useCountDown](#useCountDown)
+* [useTimerCountDown](#useTimerCountDown)
 * [useIsMounted](#useIsMounted)
 * [useIsLoading](#useIsLoading)
 * [useDocumentTitle](#useDocumentTitle)
@@ -31,6 +31,8 @@ these are some custom hooks to help you not repeat yourself again, again and may
 * [useSpeak](#useSpeak)
 * [useSpeechRecognition](#useSpeechRecognition)
 * [useCopyToClipboard](#useCopyToClipboard)
+* [useCountUp](#useCountUp)
+* [useCountDown](#useCountDown)
 
 # usage
 
@@ -548,7 +550,7 @@ export default function App() {
 * on default it is 0.
 
 ---
-## useCountDown
+## useTimerCountDown
 for simple yet complex countdown use this hook, you will save a lot of time.
 This hook take **one** parameter which is of type **Date** and returns an array with **four** elements; *[days, hours, minutes, seconds]*.
 
@@ -556,11 +558,11 @@ This hook take **one** parameter which is of type **Date** and returns an array 
 import React from "react";
 import "./App.css";
 
-import {useCountDown} from "custom-hooks-react";
+import { useTimerCountDown } from "custom-hooks-react";
 
 export default function App() {
   
-  const [days, hours, minutes, seconds] = useCountDown("September 1, 2021 00:00:00");
+  const [days, hours, minutes, seconds] = useTimerCountDown("September 1, 2021 00:00:00");
 
   return (
     <div>
@@ -853,3 +855,52 @@ export default function App() {
 ```
 ### Parameters
 NONE
+
+---
+
+## useCountUp
+React JS hook to animate counting up to a given number from 0.
+
+```
+import { useCountUp } from "custom-hooks-react";
+
+function App() {
+  const counter = useCountUp(500, 100)
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>{counter}</p>
+      </header>
+    </div>
+  )
+}
+```
+### Parameters
+1. countUp number - number
+2. timer - miliseconds
+3. accumulater - number - [ default = 200 ]
+---
+## useCountDown
+React JS hook to animate counting down to 0 from a given number.
+
+```
+import { useCountDown } from "custom-hooks-react";
+
+function App() {
+  const counter = useCountDown(500, 100,
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>{counter}</p>
+      </header>
+    </div>
+  )
+}
+```
+### Parameters
+1. countUp number - number
+2. timer - miliseconds
+3. accumulater - number - [ default = 200 ]
+---

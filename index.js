@@ -8,7 +8,7 @@ import useStack from "./hooks/useStack";
 import useQueue from "./hooks/useQueue";
 import useGeoLocation from "./hooks/useGeoLocation";
 import useTimer from "./hooks/useTimer";
-import useCountDown from "./hooks/useCountDown";
+import useTimerCountDown from "./hooks/useTimerCountDown";
 import useIsMounted from "./hooks/useIsMounted";
 import useIsLoading from "./hooks/useIsLoading";
 import useSessionStorage from "./hooks/useSessionStorage";
@@ -24,6 +24,8 @@ import usePosition from "./hooks/usePosition";
 import useSpeak from "./hooks/useSpeak";
 import useSpeechRecognition from "./hooks/useSpeechRecognition";
 import useCopyToClipboard from "./hooks/useCopyToClipboard";
+import useCountDown from "./hooks/useCountDown";
+import useCountUp from "./hooks/useCountUp";
 
 export {
   useInput,
@@ -36,7 +38,7 @@ export {
   useQueue,
   useGeoLocation,
   useTimer,
-  useCountDown,
+  useTimerCountDown,
   useIsMounted,
   useIsLoading,
   useSessionStorage,
@@ -52,4 +54,6 @@ export {
   useSpeak,
   useSpeechRecognition,
   useCopyToClipboard,
+  useCountDown,
+  useCountUp
 };

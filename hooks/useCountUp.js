@@ -7,16 +7,16 @@ import { useState, useEffect, useRef } from 'react';
  * @return {number}
  */
 
-const useCountDown = (n, t, d = 200) => {
+const useCountUp = (n, t, d = 200) => {
     const [state, setstate] = useState(null);
-    const ref = useRef(n);
+    const ref = useRef(0);
 
     const upper = n / d;
 
     const updateState = () => {
-        if (ref.current > 0) {
-            const result = Math.ceil(ref.current - upper);
-            if (result < 0) return setstate(0);
+        if (ref.current < n) {
+            const result = Math.ceil(ref.current + upper);
+            if (result > n) return setstate(n);
             setstate(result);
             ref.current = result;
         }
@@ -31,4 +31,4 @@ const useCountDown = (n, t, d = 200) => {
     return state;
 };
 
-export default useCountDown;
+export default useCountUp;

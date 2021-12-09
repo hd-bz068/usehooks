@@ -1,6 +1,6 @@
 {
   "name": "custom-hooks-react",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "react custom hooks, happy react coding",
   "main": "index.js",
   "scripts": {
